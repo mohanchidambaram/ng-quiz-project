@@ -19,6 +19,44 @@
       <div class="card-content white-text">
         <span class="card-title">{{quizService.qnProgress+1}}</span>
         <p>{{quizService.qns[quizService.qnProgress].questionMain}}</p>
+        
+        <div *ngIf="quizService.qns[quizService.qnProgress].questionType == 2">
+          <p>{{quizService.qns[quizService.qnProgress].mcQuestionModel}}</p>
+          <ul class="collection mc">
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice1 != null" class="collection-item" >
+              1.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice1}}
+            </li>
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice2 != null" class="collection-item" >
+              2.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice2}}
+            </li>
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice3 != null" class="collection-item" >
+              3.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice3}}
+            </li>
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice4 != null" class="collection-item" >
+              4.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice4}}
+            </li>
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice5 != null" class="collection-item" >
+              5.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice5}}
+            </li>
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice6 != null" class="collection-item" >
+              6.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice6}}
+            </li>
+            <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice7 != null" class="collection-item" >
+              7.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice7}}
+            </li>
+            
+          </ul>
+        </div>
+        <div *ngIf="quizService.qns[quizService.qnProgress].questionType == 3">
+          <ul class="collection match">
+            <ng-container *ngFor="let matchObject of quizService.qns[quizService.qnProgress].matchQuestionModelList;let i = index">
+              <li *ngIf="matchObject != null" class="collection-item" >
+                {{i == 0 ? '    ': i}}    {{matchObject.matchLeft}} - {{matchObject.matchRight}}
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+        <p>{{quizService.qns[quizService.qnProgress].questionSub}}</p>
         <!-- <div *ngIf="quizService.qns[quizService.qnProgress].ImageName!=null">
           <img class="center" [src]="quizService.rootUrl+'/Images/'+quizService.qns[quizService.qnProgress].ImageName" style="width:350px;height:200px">
         </div> -->
