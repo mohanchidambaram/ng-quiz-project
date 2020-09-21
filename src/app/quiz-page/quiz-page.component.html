@@ -19,9 +19,7 @@
       <div class="card-content white-text">
         <span class="card-title">{{quizService.qnProgress+1}}</span>
         <p>{{quizService.qns[quizService.qnProgress].questionMain}}</p>
-        
         <div *ngIf="quizService.qns[quizService.qnProgress].questionType == 2">
-          <p>{{quizService.qns[quizService.qnProgress].mcQuestionModel}}</p>
           <ul class="collection mc">
             <li *ngIf="quizService.qns[quizService.qnProgress].mcQuestionModel.choice1 != null" class="collection-item" >
               1.   {{quizService.qns[quizService.qnProgress].mcQuestionModel.choice1}}
